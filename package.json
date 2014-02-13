@@ -1,6 +1,6 @@
 {
   "name": "nav-global",
-  "version": "0.0.4",
+  "version": "0.1.3",
   "description": "nav.css - file packaged with bower and loads to the webmaker.org as a bower component",
   "main": "nav.css",
   "repository": {
