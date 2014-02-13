@@ -17,12 +17,14 @@
   width: 100%;
   padding: 0 15px;
 }
+
 .webmaker-nav {
   padding: 0;
   margin: 0;
   list-style: none;
   font-size: 1em;
 }
+
 .webmaker-nav > li > a {
   display: block;
   height: 100%;
@@ -31,9 +33,11 @@
   cursor: pointer;
   user-select: none;
 }
+
 .webmaker-nav > li > a:hover {
   text-decoration: underline;
 }
+
 #logo {
   line-height: 1;
   float: left;
@@ -46,16 +50,18 @@
   float: right;
   text-align: right;
 }
+
 .user-info > li {
   float: left;
   border-right: none;
   height: 100%;
   margin: 0.9em 0;
   border-right: 1px solid #b5b7b8;
+  &:last-child {
+    border-right: none;
+  }
 }
-.user-info > li:last-child {
-  border-right: none;
-}
+
 .user-info button {
   border: none;
   padding: 0 10px;
@@ -65,47 +71,51 @@
   line-height: 1.1;
   color: #27AAE1;
   cursor: pointer;
-}
-.user-info button span {
-  background: #27AAE1;
-  color: #fff;
-  padding: 0.5em;
-  margin-left: 24px;
-  position: relative;
-}
-.user-info button span:before {
-  content: "";
-  border-right: 14px solid #27AAE1;
-  border-top: 14px solid transparent;
-  border-bottom: 14px solid transparent;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0;
-  left: -14px;
+  span {
+    background: #27AAE1;
+    color: #fff;
+    padding: 0.5em;
+    margin-left: 24px;
+    position: relative;
+    &:before {
+      content: "";
+      border-right: 14px solid #27AAE1;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: -14px;
+    }
+  }
 }
 .user-info button:hover {
   text-decoration: underline;
 }
+
 .webmaker-nav .user {
   position: relative;
   padding-left: 36px;
   border-right: none;
+  img {
+    position: absolute;
+    left: 0;
+    top: -0.4em;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+  }
 }
-.webmaker-nav .user img {
-  position: absolute;
-  left: 0;
-  top: -0.4em;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-}
+
 #identity {
   font-weight: bold;
+  > a {
+    color: inherit;
+  }
 }
-#identity > a {
-  color: inherit;
-}
+
+
 .webmaker-create-user {
   display: none;
   padding: 2em 1em;
@@ -114,14 +124,15 @@
   color: #555;
   text-align: center;
 }
+
 .webmaker-create-user > form {
   display: inline-block;
   text-align: left;
   width: 500px;
-}
-.webmaker-create-user > form .error-message {
-  color: #ff0000;
-  overflow: hidden;
+  .error-message {
+    color: #ff0000;
+    overflow: hidden;
+  }
 }
 /*********************************************************
 * Helpers
@@ -129,15 +140,19 @@
 .webmaker-create-user .row {
   margin: 1em 0;
 }
+
 .webmaker-create-user .inline {
   display: inline-block;
 }
+
 .webmaker-create-user .visually-hidden {
   display: block;
   height: 1px;
   overflow: hidden;
   left: -99999em;
 }
+
+
 /*********************************************************
 * Title
 */
@@ -146,6 +161,7 @@
   font-weight: 700;
   margin: 0;
 }
+
 /*********************************************************
 * Display username
 */
@@ -169,8 +185,9 @@
 }
 .display-username-input:focus {
   outline: none;
-  box-shadow: 0 2px 3px -3px #3fb58e;
+  box-shadow: 0 2px 3px -3px #3FB58E;
 }
+
 /*********************************************************
 * Buttons, iframe
 */
@@ -191,34 +208,41 @@ a:hover {
   font-size: 1em;
   border-radius: 2px;
 }
+
 .create-user-submit {
   padding: 1em;
   font-size: 1.2em;
 }
+
 .create-user-submit:hover {
   background: #79b790;
 }
+
 /*********************************************************
 * Login button states - done via a JS class switch
 */
 /* Initial we don't want anything shown */
-#webmaker-nav .user,
-#webmaker-nav .dash,
-#webmaker-nav .makes,
-#webmaker-nav #webmaker-logout {
-  display: none;
+#webmaker-nav {
+  .user,
+  .dash,
+  .makes,
+  #webmaker-logout {
+    display: none;
+  }
 }
 /* We're logged in - show all the things */
-.loggedin #webmaker-nav .user,
-.loggedin #webmaker-nav .dash,
-.loggedin #webmaker-nav .makes {
-  display: block;
+#webmaker-nav.loggedin {
+  .user,
+  .dash,
+  .makes {
+    display: block;
+  }
 }
 /*********************************************************
 * My projects
 */
 .my-projects-container {
-  display: none;
+  display:none;
 }
 .my-projects-container iframe {
   width: 100%;
@@ -227,29 +251,17 @@ a:hover {
   border-bottom: 1px solid #CCC;
   border: none;
 }
+
 .my-projects-container.open {
   z-index: 5;
   position: relative;
   display: block;
 }
+
 .my-projects-container.open iframe {
   height: 300px;
 }
+
 .my-projects-title.hidden {
   display: none;
-}
-/*********************************************************
-* iframe styling
-*/
-#webmaker-nav iframe.include-frame {
-  position: relative;
-  top: -0.5em;
-  height: 30px;
-  width: 9em;
-  border: none;
-  margin-left: 10px;
-  padding: 0;
-}
-#webmaker-nav iframe.include-frame.loggedin {
-  width: 4em!important;
 }
